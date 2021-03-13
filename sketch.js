@@ -5,11 +5,13 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 var monster1,monster2;
-var m1Img,m2Img;
+var m1Img,m2Img, bg;
 
 function preload(){
  m1Img = loadImage("images/monster-01.png");
- m2Img = loadImage("images/monster-02.png")
+ m2Img = loadImage("images/monster-02.png");
+ bg = loadImage("images/GamingBackground.png")
+
 }
 
 
@@ -17,7 +19,7 @@ function setup(){
     var canvas = createCanvas(3000,800);
     engine = Engine.create();
     world = engine.world;
-
+    
 
     ground = new Ground(600,600,1200,20);
 
@@ -59,12 +61,11 @@ function setup(){
 
 function draw(){
    
-        background(0);
-    
-      
-    
+    background(0);    
+    background(bg);
+        
     Engine.update(engine);
-   
+    
     ground.display();
 
     box1.display();
